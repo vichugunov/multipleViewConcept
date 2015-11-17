@@ -3,10 +3,13 @@ define(['routeHelpers'], function(routeHelpers) {
         init: init
     };
 
+    var path = require('path'),
+        dirname = path.resolve(path.dirname());
+
     function init(router, collection) {
         // routings
         router.all('/', function(req, res) {
-            res.send('Hello World');
+            res.render('index');
         });
 
         // get collection

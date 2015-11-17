@@ -11,7 +11,11 @@ define(['utils/utils', 'model', 'routes'], function(utils, model, routes) {
         generated = {};
 
     // use template engine on server-side
-    app.engine('jade', require('jade').__express);
+    // Configuration
+    //basic html handling as jade
+    app.engine('html', require('ejs').renderFile);
+    app.set('view engine', 'html');
+    app.set('views', path.join(dirname, '/static/views'));
 
     // parse application/x-www-form-urlencoded
     app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,6 +40,7 @@ define(['utils/utils', 'model', 'routes'], function(utils, model, routes) {
 
     // use static middleware
     app.use(express.static(dirname + '/static'));
+    app.use(express.static(dirname + '/scripts'));
 
     // get generated data and only after that start listening server
     model.generateData(function(err, data) {
