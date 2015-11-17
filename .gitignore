@@ -1,1 +1,5 @@
 node_modules/
+scripts/server/data.json
+npm-debug.log
+.idea/
+production/

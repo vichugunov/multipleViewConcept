@@ -1,0 +1,24 @@
+{
+  "name": "multiple-views-concept",
+  "version": "0.0.1",
+  "description": "Multiple views concept implemented via Node.JS+Express and Angular JS on client-side",
+  "repository": "https://github.com/vichugunov/multipleViewConcept.git",
+  "homepage": "https://github.com/vichugunov/multipleViewConcept",
+  "author": "Victor Chugunov <vichugunov@gmail.com>",
+  "dependencies": {
+    "requirejs": "^2.1.20"
+  },
+  "main": "scripts/server/index",
+  "engines": {
+    "node": ">= 0.4.1"
+  },
+  "scripts": {
+    "run": "node scripts/server/index.js"
+  },
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "requirejs-middleware": "^0.2.0"
+  }
+}
