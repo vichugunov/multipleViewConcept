@@ -1,0 +1,13 @@
+.nav.top-navigation {
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px){
+    .top-navigation{
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+        float:none;
+    }
+}

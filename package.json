@@ -7,6 +7,7 @@
   "author": "Victor Chugunov <vichugunov@gmail.com>",
   "dependencies": {
     "angular": "~1.4.7",
+    "domready": "^1.0.8",
     "requirejs": "^2.1.20"
   },
   "main": "scripts/server/index",
@@ -19,9 +20,11 @@
   "devDependencies": {
     "body-parser": "^1.14.1",
     "ejs": "^2.3.4",
+    "ender": "^2.1.1",
     "express": "^4.13.3",
     "handlebars": "^4.0.4",
     "jade": "^1.11.0",
-    "requirejs-middleware": "^0.2.0"
+    "requirejs-middleware": "^0.2.0",
+    "supervisor": "^0.9.1"
   }
 }

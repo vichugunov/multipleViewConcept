@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="interactive">
     <head>
         <% include partials/head %>
-        <script data-main="client/main.js" src="vendor/require.js"></script>
+        <link href="css/interactive.css" rel="stylesheet">
     </head>
 
-    <body>
-        <div class="container-fluid text-center">
-            <label>Name:</label>
-            <input type="text" ng-model="yourName" placeholder="Enter a name here">
+    <body ng-controller="MainController">
+        <div class="container-fluid">
+            <ul class="nav nav-tabs top-navigation">
+                <li class="disabled"><a>Выберите представление</a></li>
+                <li ng-repeat="tab in tabs" ng-class="{ 'active': tab.caption === page.title() }">
+                    <a data-toggle="tab" data-route="{{ tab.route }}">{{ tab.caption }}</a></li>
+                </li>
+            </ul>
             <hr>
-            <h1>Hello {{yourName}}!</h1>
-
-            <a href="/" class="btn btn-default">На главную</a>
+            <div class="container-fluid text-center">
+                <p class="lead">В настоящий момент вы находитесь на странице <strong>{{page.title()}}</strong></p>
+                <hr>
+            </div>
+            <div ng-view></div>
+            <hr>
+            <div class="container-fluid text-center">
+                <a href="/" class="btn btn-default">На главную</a>
+            </div>
         </div>
     </body>
+    <% include partials/scriptLoader %>
 </html>
