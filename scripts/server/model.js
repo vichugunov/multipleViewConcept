@@ -147,7 +147,9 @@ define(['utils/lorem'], function(loremIpsum) {
             return callback(null);
         }
 
-        delete collection[groupId][contactId];
+        if (collection[groupId]) {
+            delete collection[groupId][contactId];
+        }
         delete collection[unsortedGroupId].ids[contactId];
 
         callback(null);
