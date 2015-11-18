@@ -3,3 +3,4 @@ scripts/server/data.json
 npm-debug.log
 .idea/
 production/
+.DS_Store
