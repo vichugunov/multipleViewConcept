@@ -1,5 +1,24 @@
+<!--
 <div class="container text-center" style="margin-top: 40px">
     <label>Name:</label>
     <input type="text" ng-model="yourName" placeholder="Enter a name here">
     <h1>Hello {{yourName}}!</h1>
+</div>
+-->
+<div ng-repeat="(groupId, contacts) in itms">
+    <p>{{groupId}}</p>
+
+    <ul>
+        <li ng-repeat="(contactId, contact) in contacts">
+            <span>{{contactId}}</span>
+            <div>
+                <label>Name</label>
+                <span>{{contact.name}}</span>
+            </div>
+            <div>
+                <label>PhoneNumber</label>
+                <span>{{contact.phoneNumber}}</span>
+            </div>
+        </li>
+    </ul>
 </div>

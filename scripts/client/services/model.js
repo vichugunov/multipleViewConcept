@@ -1,36 +1,54 @@
 define(['./module'], function(services) {
-    function ModelService() {
-        var data = [
-            {id:0, title:'Doh', detail:"A dear. A female dear."},
-            {id:1, title:'Re', detail:"A drop of golden sun."},
-            {id:2, title:'Me', detail:"A name I call myself."},
-            {id:3, title:'Fa', detail:"A long, long way to run."},
-            {id:4, title:'So', detail:"A needle pulling thread."},
-            {id:5, title:'La', detail:"A note to follow So."},
-            {id:6, title:'Tee', detail:"A drink with jam and bread."}
-        ];
+    function ModelService($resource, $http) {
+        /*return $resource('/contacts', {}, {
+            getCollection: { method: 'GET', responseType: 'json'},
+            addContact: { method: 'POST', data: {}, responseType: 'json'},
+            modifyContact: { method: 'PUT', data: {}, responseType: 'json'},
+            deleteContact: { method: 'PUT', data: {}, responseType: 'json'}
+        });*/
+
+        var url = '/contacts';
+
         return {
-            notes: function () {
-                return data;
+            getCollection: function(callback) {
+                callback = callback || function(){};
+                $http.get(url).success(function(data) {
+                    // console.log('getCollection', data);
+                    callback(null, data);
+                })
             },
-            get: function(id){
-                return data[id];
-            },
-            add: function (note) {
-                var currentIndex = data.length;
-                data.push({
-                    id:currentIndex, title:note.title, detail:note.detail
+            addContact: function(contact, callback) {
+                callback = callback || function(){};
+                $http.post(url, contact).success(function(response) {
+                    console.log('addContact', response);
+                    callback(null, response);
                 });
             },
-            delete: function (id) {
-                var oldNotes = data;
-                data = [];
-                angular.forEach(oldNotes, function (note) {
-                    if (note.id !== id) data.push(note);
+            modifyContact: function(contact) {
+                callback = callback || function(){};
+                $http.put(url, contact, responseType).success(function(response) {
+                    console.log('modifyContact', response);
+                    callback(null, response);
                 });
+            },
+            deleteContact: function(contact) {
+                $http.delete(contact).success(function(response) {
+                    console.log('deleteContact', response);
+                    callback(null, response);
+                });
+            },
+            extractContactsArray: function(data) {
+                var resultArr = [];
+                for (var groupId in data) {
+                    for (var contactId in data[groupId]) {
+                        resultArr.push(data[groupId][contactId]);
+                    }
+                }
+
+                return resultArr;
             }
         };
     }
 
-    return services.factory('Model', ModelService);
+    return services.factory('Model', ['$resource', '$http', ModelService]);
 });

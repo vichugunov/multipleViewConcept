@@ -1,3 +1,3 @@
 define(['angular'], function (angular) {
-    return angular.module('app.services', []);
+    return angular.module('app.services', ['ngResource']);
 });
