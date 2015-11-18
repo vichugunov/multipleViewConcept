@@ -1,7 +1,13 @@
-body {
-    padding-top: 50px;
+.bg {
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
 }
-.starter-template {
-    padding: 40px 15px;
-    text-align: center;
+
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.container-fluid-img {
+    margin: 30px 0;
 }

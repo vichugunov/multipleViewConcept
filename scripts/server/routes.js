@@ -8,8 +8,12 @@ define(['routeHelpers'], function(routeHelpers) {
 
     function init(router, collection) {
         // routings
-        router.all('/', function(req, res) {
-            res.render('index');
+        router.get('/', function(req, res) {
+            res.render('landing');
+        });
+
+        router.get('/interactive', function(req, res) {
+            res.render('interactive');
         });
 
         // get collection
