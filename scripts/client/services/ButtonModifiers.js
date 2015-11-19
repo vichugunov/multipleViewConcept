@@ -16,7 +16,7 @@ define(['./module'], function(services) {
                     updateCallback = options && options.updateCallback || function() {};
 
                 actions.forEach(function(a) {
-                   $(viewContainer).on('click', a.tag + '[' + 'data-' + a.action + ']', getActionHandler[a.action](model, updateCallback));
+                   $(viewContainer).on('click', a.tag + '[' + 'data-' + a.action + ']', getActionHandler[a.action](model, a.tag, updateCallback));
                 });
             }
         };
@@ -28,9 +28,15 @@ define(['./module'], function(services) {
         });
     }
 
-    function getDeleteHandler(Model, updateCallback) {
+    function getDeleteHandler(Model, tag, updateCallback) {
         return (function(e){
-            var contact = $(e.target).attr('data-contact');
+            var node = e.target;
+            if (node.tagName.toLowerCase() !== tag) {
+                while (node.tagName.toLowerCase() !== tag && node.parentNode !== document) {
+                    node = node.parentNode;
+                }
+            }
+            var contact = $(node).attr('data-contact');
             Model.deleteContact(contact, function(err) {
                 if (!err) {
                     updateCallback();
