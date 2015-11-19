@@ -9,6 +9,7 @@ requirejs.config({
         utils: '../utils',
         underscore: '../vendor/underscore-min',
         bootstrap: '../vendor/bootstrap/bootstrap.min',
+        'bootstrap-editable': '../vendor/bootstrap-editable/bootstrap-editable.min',
         jquery: '../vendor/jquery-2.1.4.min',
         views: '../static/views/vm'
     },
@@ -17,6 +18,9 @@ requirejs.config({
         "bootstrap": {
             deps: ["jquery"],
             exports: "$"
+        },
+        'bootstrap-editable': {
+            deps: ['bootstrap']
         },
         ngResource: {
             deps: ['angular'],
@@ -35,6 +39,6 @@ requirejs.config({
 
 // Start loading the main app file. Put all of
 // your application logic in there.
-requirejs(['underscore', 'bootstrap', 'app', 'routes'], function(_, bootstrap, app) {
+requirejs(['app', 'underscore', 'bootstrap', 'routes'], function(app) {
     app.init();
 });

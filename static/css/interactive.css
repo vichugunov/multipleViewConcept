@@ -28,3 +28,20 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+
+.card-modifiers {
+    float: right;
+    width: 30px;
+}
+
+.card-data {
+    margin-right: 40px;
+}
+
+.view-container span[data-editable] {
+    text-decoration: underline;
+}
+
+.grid-card {
+    margin: 5px 10px 0 0;
+}

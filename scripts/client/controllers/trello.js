@@ -1,5 +1,7 @@
-define(['./module', 'utils/utils'], function(controllers, utils) {
+define(['angular', './module', 'utils/utils'], function(angular, controllers, utils) {
     function TrelloController($scope, Page, Model, ButtonModifiers) {
+        var self = this;
+
         Page.setTitle('Trello');
         $scope.getLabel = function(key) {
             var labels = {

@@ -1,7 +1,12 @@
 <div class="content">
     <div class="row">
         <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="contact in itms">
-            <div class="thumbnail">
+            <div class="card-modifiers grid-card">
+                <button type="button" class="btn btn-danger btn-sm" data-delete data-contact="{{contact}}">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+            <div class="thumbnail" class="card-data">
                 <div>
                     <label>ContactId</label>
                     <span>{{contact.contactId}}</span>
@@ -17,15 +22,6 @@
                 <div>
                     <label>GroupId</label>
                     <span>{{contact.groupId}}</span>
-                </div>
-
-                <div class="btn-group btn-group-modifiers">
-                    <button type="button" class="btn btn-warning btn-sm" data-modify data-contact="{{contact}}">
-                        <span class="glyphicon glyphicon-pencil"></span> Modify
-                    </button>
-                    <button type="button" class="btn btn-danger btn-sm" data-delete data-contact="{{contact}}">
-                        <span class="glyphicon glyphicon-remove"></span> Delete
-                    </button>
                 </div>
             </div>
         </div>

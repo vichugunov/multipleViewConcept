@@ -3,30 +3,25 @@
         <div ng-repeat="(groupId, contacts) in itms" class="col-md-3">
             <p class="text-center trello-group-header">{{groupId}}</p>
             <div ng-repeat="(contactId, contact) in contacts" class="thumbnail trello-card">
-                <div class="container-fluid">
+                <div class="card-modifiers">
+                    <button type="button" class="btn btn-danger btn-sm" data-delete data-contact="{{contact}}">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <div class="container-fluid card-data">
                     <div class="row">
                         <div class="col-md-6 text-left"><label>Id</label></div>
-                        <div class="col-md-6 text-right">{{contact.contactId}}</div>
+                        <div class="col-md-6 text-right"><a id="username" data-type="text" data-pk="1" data-title="Enter username">{{contact.contactId}}</a></div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 text-left"><label>Name</label></div>
-                        <div class="col-md-6 text-right">{{contact.name}}</div>
+                        <div class="col-md-6 text-right"><a data-editable data-title="name" data-contact="{{contact}}">{{contact.name}}</a></div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 text-left"><label>Phone</label></div>
-                        <div class="col-md-6 text-right">{{contact.phoneNumber}}</div>
-                    </div>
-
-                    <div class="btn-group btn-group-modifiers">
-                        <button type="button" class="btn btn-warning btn-sm" data-modify data-contact="{{contact}}">
-                            <span class="glyphicon glyphicon-pencil"></span> Modify
-                        </button>
-                        <button type="button" class="btn btn-danger btn-sm" data-delete data-contact="{{contact}}">
-                            <span class="glyphicon glyphicon-remove"></span> Delete
-                        </button>
+                        <div class="col-md-6 text-right"><a data-editable data-title="phone" data-contact="{{contact}}">{{contact.phoneNumber}}</a></div>
                     </div>
                 </div>
-
             </div>
 
         </div>

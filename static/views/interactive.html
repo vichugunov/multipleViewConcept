@@ -3,6 +3,7 @@
     <head>
         <% include partials/head %>
         <link href="css/interactive.css" rel="stylesheet">
+        <link href="bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet">
     </head>
 
     <body ng-controller="MainController">
@@ -16,10 +17,6 @@
             <hr>
             <div class="container-fluid text-center">
                 <p>Вы находитесь на странице <strong>{{page.title()}}</strong></p>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-pencil"></span> Добавить группу</button>
-                    <button type="button" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-user"></span> Добавить контакт</button>
-                </div>
                 <div class="btn-group">
                     <a href="/" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-home"></span> Home</a>
                 </div>
