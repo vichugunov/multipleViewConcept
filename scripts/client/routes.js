@@ -1,5 +1,5 @@
 define(['./app'], function(app) {
-    return app.config(['$routeProvider', function($routeProvider) {
+    return app.config(['$httpProvider', '$routeProvider', function($httpProvider, $routeProvider) {
         var viewPrefix = '../../views/vm/';
 
         $routeProvider

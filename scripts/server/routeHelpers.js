@@ -88,7 +88,6 @@ define(['model'], function(model) {
     // check content-type
     function checkRequestType(req, res, expectedContentType) {
         expectedContentType = expectedContentType || 'application/json';
-
         if (req.header('content-type') !== expectedContentType) {
             return answerWithError(res, 400, errorStatuses.wrongType);
         }

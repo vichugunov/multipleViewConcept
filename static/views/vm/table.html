@@ -1,20 +1,29 @@
-<div ng-repeat="contact in itms">
-    <div>
-        <label>ContactId</label>
-        <span>{{contact.contactId}}</span>
-    </div>
-    <div>
-        <label>Name</label>
-        <span>{{contact.name}}</span>
-    </div>
-    <div>
-        <label>PhoneNumber</label>
-        <span>{{contact.phoneNumber}}</span>
-    </div>
-    <div>
-        <label>GroupId</label>
-        <span>{{contact.groupId}}</span>
-    </div>
-
-    <hr></hr>
-</div>
+<table class="table table-stripped" class="table-container">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>group#</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="contact in itms">
+        <th scope="row">{{contact.contactId}}</th>
+        <td>{{contact.name}}</td>
+        <td>{{contact.phoneNumber}}</td>
+        <td>{{contact.groupId}}</td>
+        <td>
+            <div class="btn-group">
+                <button type="button" class="btn btn-warning btn-sm" data-modify data-contact="{{contact}}">
+                    <span class="glyphicon glyphicon-pencil"></span> Modify
+                </button>
+                <button type="button" class="btn btn-danger btn-sm" data-delete data-contact="{{contact}}">
+                    <span class="glyphicon glyphicon-remove"></span> Delete
+                </button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

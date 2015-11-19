@@ -11,3 +11,20 @@
         float:none;
     }
 }
+
+.trello-card {
+    border: 1px solid lightgray;
+    padding: 15px;
+}
+
+.btn-group-modifiers {
+    margin-top: 10px;
+}
+
+.trello-group-header {
+    font-size: 12px;
+    font-weight: 700;
+    color: #959595;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

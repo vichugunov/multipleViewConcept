@@ -19,23 +19,51 @@ define(['./module'], function(services) {
             },
             addContact: function(contact, callback) {
                 callback = callback || function(){};
-                $http.post(url, contact).success(function(response) {
+                $http({
+                    url: url,
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: contact
+                }).success(function(response) {
                     console.log('addContact', response);
                     callback(null, response);
-                });
+                }).error(function(error) {
+                    console.log('error on addContact', error);
+                    callback(error);
+                })
             },
             modifyContact: function(contact) {
                 callback = callback || function(){};
-                $http.put(url, contact, responseType).success(function(response) {
-                    console.log('modifyContact', response);
+                $http({
+                    url: url,
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: contact
+                }).success(function(response) {
                     callback(null, response);
-                });
+                }).error(function(error) {
+                    console.log('error', error);
+                    callback(error);
+                })
             },
-            deleteContact: function(contact) {
-                $http.delete(contact).success(function(response) {
-                    console.log('deleteContact', response);
+            deleteContact: function(contact, callback) {
+                $http({
+                    url: url,
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: contact
+                }).success(function(response) {
                     callback(null, response);
-                });
+                }).error(function(error) {
+                    console.log('error', error);
+                    callback(error);
+                })
             },
             extractContactsArray: function(data) {
                 var resultArr = [];

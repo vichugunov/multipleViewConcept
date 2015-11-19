@@ -1,4 +1,5 @@
 define([
     './page',
-    './model'
+    './model',
+    './buttonModifiers'
 ]);

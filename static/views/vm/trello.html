@@ -1,24 +1,35 @@
-<!--
-<div class="container text-center" style="margin-top: 40px">
-    <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
-    <h1>Hello {{yourName}}!</h1>
-</div>
--->
-<div ng-repeat="(groupId, contacts) in itms">
-    <p>{{groupId}}</p>
+<div class="container">
+    <div class="row">
+        <div ng-repeat="(groupId, contacts) in itms" class="col-md-3">
+            <p class="text-center trello-group-header">{{groupId}}</p>
+            <div ng-repeat="(contactId, contact) in contacts" class="thumbnail trello-card">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 text-left"><label>Id</label></div>
+                        <div class="col-md-6 text-right">{{contact.contactId}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-left"><label>Name</label></div>
+                        <div class="col-md-6 text-right">{{contact.name}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-left"><label>Phone</label></div>
+                        <div class="col-md-6 text-right">{{contact.phoneNumber}}</div>
+                    </div>
 
-    <ul>
-        <li ng-repeat="(contactId, contact) in contacts">
-            <span>{{contactId}}</span>
-            <div>
-                <label>Name</label>
-                <span>{{contact.name}}</span>
+                    <div class="btn-group btn-group-modifiers">
+                        <button type="button" class="btn btn-warning btn-sm" data-modify data-contact="{{contact}}">
+                            <span class="glyphicon glyphicon-pencil"></span> Modify
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" data-delete data-contact="{{contact}}">
+                            <span class="glyphicon glyphicon-remove"></span> Delete
+                        </button>
+                    </div>
+                </div>
+
             </div>
-            <div>
-                <label>PhoneNumber</label>
-                <span>{{contact.phoneNumber}}</span>
-            </div>
-        </li>
-    </ul>
+
+        </div>
+
+    </div>
 </div>
