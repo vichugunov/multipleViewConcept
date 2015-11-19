@@ -2,7 +2,8 @@ define(['utils/utils', 'model', 'routes'], function(utils, model, routes) {
     var express = require('express'),
         app = express(),
         router = express.Router(),
-        port = 5000;
+        ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1",
+        port = process.env.OPENSHIFT_NODEJS_PORT || 5000;
 
     var bodyParser = require('body-parser');
 
@@ -48,7 +49,8 @@ define(['utils/utils', 'model', 'routes'], function(utils, model, routes) {
         generated = utils.extend({}, data);
         routes.init(router, generated);
 
-        app.listen(port);
-        console.log('Server is listening on port', port);
+        app.listen(port, ipaddress, function() {
+            console.log('Server is listening on port', port);
+        });
     });
 });
