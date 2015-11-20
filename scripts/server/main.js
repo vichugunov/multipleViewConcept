@@ -40,8 +40,8 @@ define(['utils/utils', 'model', 'routes'], function(utils, model, routes) {
     app.use(router);
 
     // use static middleware
-    app.use(express.static(dirname + '/static'));
-    app.use(express.static(dirname + '/scripts'));
+    app.use('/', express.static(dirname + '/static'));
+    app.use('/', express.static(dirname + '/scripts'));
 
     // get generated data and only after that start listening server
     model.generateData(function(err, data) {
